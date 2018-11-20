@@ -30,11 +30,18 @@ class Prototype(object):
 
 
 class User(object):
-    """Птица"""
+    """Базовая Модель"""
 
+    def __init__(self, nickname, phone, password):
+        self.nickname = nickname
+        self.phone = phone
+        self.password = password
+
+    def __str__(self):
+        return self.nickname
 
 prototype = Prototype()
-prototype.register('user',  User())
+prototype.register('user',  User(nickname='Delackrua', phone='+79209876543', password='12345678'))
 
 data = prototype.clone('user', {
     'first_name': 'Jack',
