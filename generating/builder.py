@@ -78,4 +78,4 @@ class FlashlightBuilder(Builder):
 builder = FlashlightBuilder()
 flashlight = builder.create_flashlight()
 flashlight.on()
-print flashlight  # Flashlight [on]
+print(flashlight ) # Flashlight [on]

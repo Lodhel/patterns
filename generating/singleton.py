@@ -31,11 +31,7 @@ class Singleton(object):
     def get_name(self):
         return self._name
 
+    def __str__(self):
+        return self._name
 
-obj1 = Singleton('MyInstance 1')
-print obj1.get_name()  # MyInstance 1
-
-obj2 = Singleton('MyInstance 2')
-print obj2.get_name()  # MyInstance 1
-
-print obj1 is obj2 is Singleton.get_instance()  # True
+print(Singleton('DataBases'))

@@ -25,16 +25,20 @@ class Prototype(object):
         obj.__dict__.update(attrs)
         return obj
 
+    def __str__(self):
+        return self._objects
 
-class Bird(object):
+
+class User(object):
     """Птица"""
 
 
 prototype = Prototype()
-prototype.register('bird', Bird())
+prototype.register('user',  User())
 
-owl = prototype.clone('bird', {'name': 'Owl'})
-print type(owl), owl.name  # <class '__main__.Bird'> Owl
+data = prototype.clone('user', {
+    'first_name': 'Jack',
+    'last_name': "Word"
+})
+print(data.first_name) # <class '__main__.Bird'> Owl
 
-duck = prototype.clone('bird', {'name': 'Duck'})
-print type(duck), duck.name  # <class '__main__.Bird'> Duck
