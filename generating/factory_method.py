@@ -11,35 +11,39 @@
 """
 
 
-class Document(object):
+class Car(object):
     def show(self):
         raise NotImplementedError()
 
 
-class ODFDocument(Document):
+class Bmw(Car):
     def show(self):
-        print 'Open document format'
+        print('Create Bmw')
 
 
-class MSOfficeDocument(Document):
+class Nissan(Car):
+    def skyline(self, model):
+        if model == 'R34':
+            return SkyR34()
+
+class SkyR34(Nissan):
     def show(self):
-        print 'MS Office document format'
-
+        print('Create Nissan Skyline R34')
 
 class Application(object):
-    def create_document(self, type_):
+    def create_auto(self, type_):
         # параметризованный фабричный метод `create_document`
         raise NotImplementedError()
 
 
 class MyApplication(Application):
-    def create_document(self, type_):
-        if type_ == 'odf':
-            return ODFDocument()
-        elif type_ == 'doc':
-            return MSOfficeDocument()
+    def create_auto(self, type_):
+        if type_ == 'nissan':
+            return Nissan()
+        elif type_ == 'bmw':
+            return Bmw()
 
 
 app = MyApplication()
-app.create_document('odf').show()  # Open document format
-app.create_document('doc').show()  # MS Office document format
+app.create_auto('bmw').show() # bmw
+app.create_auto('nissan').skyline('R34') .show() # nissan
